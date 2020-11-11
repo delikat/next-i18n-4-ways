@@ -1,23 +1,37 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 
-const IndexPage = ({ locale, locales }) => (
+import { StoreItem } from "../interfaces";
+import { getAllStoreItems } from "../utils/db";
+
+type Props = {
+  allStoreItems: StoreItem[];
+};
+
+const IndexPage = ({ allStoreItems }: Props) => (
   <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
+    <h1>Welcome to KittenMittens 🐈🧤</h1>
+
     <p>
       <Link href="/about">
         <a>About</a>
       </Link>
-      {locale}
     </p>
+    <ul>
+      {allStoreItems.map((storeItem: StoreItem) => (
+        <li>
+          <p>{storeItem.title}</p>
+        </li>
+      ))}
+    </ul>
   </Layout>
 );
 
-export const getStaticProps = ({ locale, locales }) => {
+export const getStaticProps = () => {
+  const allStoreItems = getAllStoreItems();
   return {
     props: {
-      locale,
-      locales,
+      allStoreItems,
     },
   };
 };
