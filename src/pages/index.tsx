@@ -11,12 +11,6 @@ type Props = {
 const IndexPage = ({ allStoreItems }: Props) => (
   <Layout title="Home | Next.js + TypeScript Example">
     <h1>Welcome to KittenMittens 🐈🧤</h1>
-
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
     <ul>
       {allStoreItems.map((storeItem: StoreItem) => (
         <li>

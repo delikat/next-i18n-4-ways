@@ -7,7 +7,10 @@ type Props = {
   title?: string;
 };
 
-const Layout = ({ children, title = "This is the default title" }: Props) => (
+const Layout: React.FC = ({
+  children,
+  title = "This is the default title",
+}: Props) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -18,10 +21,6 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       <nav>
         <Link href="/">
           <a>Home</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/about">
-          <a>About</a>
         </Link>{" "}
         |{" "}
       </nav>
