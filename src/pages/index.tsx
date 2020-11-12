@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
+import StoreItemCard from "../components/StoreItemCard";
 
 import { StoreItem } from "../interfaces";
 import { getAllStoreItems } from "../utils/db";
@@ -10,12 +11,10 @@ type Props = {
 
 const IndexPage = ({ allStoreItems }: Props) => (
   <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Welcome to KittenMittens 🐈🧤</h1>
+    <h1>Welcome to our store</h1>
     <ul>
       {allStoreItems.map((storeItem: StoreItem) => (
-        <li>
-          <p>{storeItem.title}</p>
-        </li>
+        <StoreItemCard storeItem={storeItem} />
       ))}
     </ul>
   </Layout>
